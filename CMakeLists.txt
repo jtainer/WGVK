@@ -167,6 +167,8 @@ endif()
 # to the final `wgvk` target, these properties will be correctly inherited.
 if(WGVK_USE_VMA)
   target_compile_definitions(${WGVK_PRIMARY_TARGET_NAME} PUBLIC USE_VMA_ALLOCATOR=1)
+else()
+  target_compile_features(${WGVK_PRIMARY_TARGET_NAME} PRIVATE c_std_99)
 endif()
 
 target_include_directories(${WGVK_PRIMARY_TARGET_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
